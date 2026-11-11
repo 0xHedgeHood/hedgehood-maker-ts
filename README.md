@@ -26,10 +26,8 @@ Node ≥ 20, ESM. Dependencies: `viem`, `ws`. Every on-chain integer is a `bigin
 
 ## Install
 
-Not yet on npm; install from GitHub (npm builds it on install):
-
 ```
-npm install github:0xHedgeHood/hedgehood-maker-ts
+npm install @hedgehood/maker
 ```
 
 ## Quickstart
