@@ -1,5 +1,5 @@
 {
-  "name": "@hedgehood/maker",
+  "name": "@hedgehood-io/maker",
   "version": "0.1.0",
   "description": "TypeScript SDK for market makers on the Hedgehood options RFQ gateway (testnet only; contracts not yet audited)",
   "license": "MIT",

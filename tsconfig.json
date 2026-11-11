@@ -16,7 +16,7 @@
     "rootDir": ".",
     "noEmit": true,
     "paths": {
-      "@hedgehood/maker": ["./src/index.ts"]
+      "@hedgehood-io/maker": ["./src/index.ts"]
     }
   },
   "include": ["src", "test", "examples", "vitest.config.ts"]

@@ -30,7 +30,7 @@ import {
   SHARE,
   TESTNET,
   USDG,
-} from "@hedgehood/maker";
+} from "@hedgehood-io/maker";
 import type { Hex } from "viem";
 
 const YEAR = 365 * 24 * 3600;
