@@ -89,6 +89,12 @@ HEDGEHOOD_LIVE_RPC=https://rpc.testnet.chain.robinhood.com npm run test:live   #
 HEDGEHOOD_VECTORS=/path/to/sdks/vectors/goldens.json npm test                  # with the shared vectors (CI does this)
 ```
 
+## Releasing
+
+Bump `version` in package.json, merge, then push the tag `vX.Y.Z`: `.github/workflows/release.yml` runs the checks and
+publishes to npm by trusted publishing (no token; npm shows the provenance). Python and Go release the same way from
+their repositories.
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
