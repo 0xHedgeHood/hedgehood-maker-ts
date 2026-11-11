@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "TypeScript SDK for market makers on the Hedgehood options RFQ gateway (testnet only; contracts not yet audited)",
   "license": "MIT",
-  "private": true,
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -45,5 +44,16 @@
     "typescript": "6.0.3",
     "vitest": "4.1.12"
   },
-  "homepage": "https://github.com/0xHedgeHood/hedgehood-maker-ts#readme"
+  "homepage": "https://github.com/0xHedgeHood/hedgehood-maker-ts#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "hedgehood",
+    "options",
+    "rfq",
+    "market-maker",
+    "eip-712",
+    "robinhood-chain"
+  ]
 }
