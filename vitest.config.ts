@@ -3,7 +3,7 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
-    alias: { "@hedgehood/maker": fileURLToPath(new URL("./src/index.ts", import.meta.url)) },
+    alias: { "@hedgehood-io/maker": fileURLToPath(new URL("./src/index.ts", import.meta.url)) },
   },
   test: {
     include: ["test/**/*.test.ts"],

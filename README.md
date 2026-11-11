@@ -2,7 +2,7 @@
 
 **Hedgehood maker SDKs:** [Python](https://github.com/0xHedgeHood/hedgehood-maker-py) · [TypeScript](https://github.com/0xHedgeHood/hedgehood-maker-ts) · [Go + CLI](https://github.com/0xHedgeHood/hedgehood-maker-go) · [maker guide, test vectors](https://github.com/0xHedgeHood/sdks)
 
-`@hedgehood/maker`: TypeScript SDK for market makers on the Hedgehood options RFQ gateway, with the same API as the
+`@hedgehood-io/maker`: TypeScript SDK for market makers on the Hedgehood options RFQ gateway, with the same API as the
 Python and Go SDKs: sign firm EIP-712 quotes for the `RfqSettler`, answer the gateway's requests over its WebSocket, and build the
 (unsigned) on-chain setup transactions.
 
@@ -27,7 +27,7 @@ Node ≥ 20, ESM. Dependencies: `viem`, `ws`. Every on-chain integer is a `bigin
 ## Install
 
 ```
-npm install @hedgehood/maker
+npm install @hedgehood-io/maker
 ```
 
 ## Quickstart
@@ -35,7 +35,7 @@ npm install @hedgehood/maker
 Onboarding (allowlist, `setSigner`, funding) is in the [maker guide](https://github.com/0xHedgeHood/sdks/blob/main/docs/MAKER_GUIDE.md); the transactions:
 
 ```ts
-import { castCommand, SettlerTxs, TESTNET } from "@hedgehood/maker";
+import { castCommand, SettlerTxs, TESTNET } from "@hedgehood-io/maker";
 
 const txs = SettlerTxs.forNetwork(TESTNET);
 const hotKeyUntil = BigInt(Math.floor(Date.now() / 1000) + 7 * 86400);
@@ -49,7 +49,7 @@ for (const tx of [
 Quote:
 
 ```ts
-import { Decline, MAKER_BUYS, MakerClient, notional, TESTNET } from "@hedgehood/maker";
+import { Decline, MAKER_BUYS, MakerClient, notional, TESTNET } from "@hedgehood-io/maker";
 
 const client = new MakerClient({
   url: TESTNET.gatewayWs,
