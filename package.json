@@ -32,7 +32,7 @@
     "format": "biome check --write .",
     "test": "vitest run",
     "test:live": "vitest run test/live.test.ts",
-    "prepack": "npm run build"
+    "prepare": "npm run build"
   },
   "dependencies": {
     "viem": "2.57.11",
