@@ -1,0 +1,42 @@
+name: release
+
+# Push a tag vX.Y.Z equal to package.json's version: tests, then publishes to npm by trusted publishing (OIDC, no
+# token stored; npm attaches provenance). npm side: package @hedgehood-io/maker, Settings > Trusted publisher =
+# GitHub Actions, organization 0xHedgeHood, repository hedgehood-maker-ts, workflow release.yml, environment npm.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      HEDGEHOOD_VECTORS: ${{ github.workspace }}/.hub/vectors/goldens.json # canonical vectors, 0xHedgeHood/sdks
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: 0xHedgeHood/sdks
+          path: .hub
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+      - name: npm with trusted publishing (>= 11.5.1)
+        run: npm install -g npm@11 && npm --version
+      - name: tag matches the version
+        run: |
+          v=$(node -p "require('./package.json').version")
+          test "v$v" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME != package.json version $v"; exit 1; }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm publish
